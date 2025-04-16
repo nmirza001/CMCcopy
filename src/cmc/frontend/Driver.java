@@ -473,7 +473,6 @@ public class Driver {
      */
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        boolean keepRunning = true;
 
         while (!requestingExit) {
             User currentUser = ui.getLoggedInUser();
