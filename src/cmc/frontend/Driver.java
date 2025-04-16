@@ -246,7 +246,7 @@ public class Driver {
             userSavedSchoolListMenu(s, ui);
             break;
         case 3: // View Specific School
-            System.out.print("Enter the EXACT school name to view (usually ALL CAPS): ");
+            System.out.print("Enter the EXACT school name to view: ");
             String schoolNameInput = s.nextLine();
             if (schoolNameInput.trim().isEmpty()) {
                 System.out.println("No school name entered.");
