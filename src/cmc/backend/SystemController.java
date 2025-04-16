@@ -217,4 +217,27 @@ public class SystemController {
 		if (uni == null) throw new IllegalArgumentException ("University is null");
 			return myUC.editUniversity(uni);
 	}
+	/**@param username the username of the user to update
+	 * @param newFirstName new first name
+	 * @param newLastName new last name
+	 * @param newPassword new password
+	 * @return true if update is successful
+	 * @throws CMCException if error occurs
+	 */
+	public boolean updateUserInfo (String username, String newFirstName, String newLastName, String newPassword) throws CMCException{
+		User user = this.myDBController.getUser(username);
+		if(user == null) {
+			return false;
+		}
+		if (newFirstName != null && !newFirstName.isEmpty()) {
+			user.setFirstName(newFirstName);
+		}
+		if (newLastName != null && !newLastName.isEmpty()) {
+			user.setLastName(newLastName);
+		}
+		if (newPassword != null && !newPassword.isEmpty()) {
+			user.setPassword(newPassword);
+		}
+	return this.myAC.updateUser(user);
+}
 }
