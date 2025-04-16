@@ -46,13 +46,6 @@ public class AccountController {
 		return db.removeUser(u);
 	}
 	
-	// remove a user from the db
-	public boolean deactivateUser(User u) throws CMCException {
-		u.setActivated(false);
-			
-		return db.editUser(u);
-	}
-	
 	// get the list of all the users in the DB
 	public List<User> getAllUsers() {
 		
@@ -63,7 +56,7 @@ public class AccountController {
 	 * @Version 4/16/2025
 	 */
 	// Updates User info
-	public boolean updateUser(User u)throws CMCException {
+	public boolean editUser(User u) {
 		return db.editUser(u);
 	}
 }

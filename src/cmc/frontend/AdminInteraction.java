@@ -272,7 +272,8 @@ public class AdminInteraction extends UserInteraction {
         // Shift everything by 1 since list starts at 1
         User u = allUsers.get(usernum - 1);
         
-        boolean success = this.theSystemController.deactivateUser(u);
+        u.setActivated(false);
+        boolean success = acct.editUser(u);
         if (success) {
             System.out.println("User '" + u.getUsername() + "' successfully deactivated.");
         } else {

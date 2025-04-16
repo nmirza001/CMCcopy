@@ -80,21 +80,6 @@ public class SystemController {
 	}
 	
 	/**
-	 * Admin only method to deactivate a user
-	 * @param User u gets the user to deactivate
-	 * @return returns true if deactivated and false if not deactivated
-	 * @author tflynn001
-	 * Version April 14, 2025
-	 */
-	public boolean deactivateUser(User u) {
-		try {
-			return this.myAC.deactivateUser(u);
-		} catch (CMCException e) {
-			return false;
-		}
-	}
-	
-	/**
 	 * Gets the SearchController for performing university searches.
 	 * @return The search controller
 	 */
@@ -238,6 +223,6 @@ public class SystemController {
 		if (newPassword != null && !newPassword.isEmpty()) {
 			user.setPassword(newPassword);
 		}
-	return this.myAC.updateUser(user);
+	return this.myAC.editUser(user);
 }
 }
