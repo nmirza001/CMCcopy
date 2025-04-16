@@ -443,8 +443,7 @@ public class Driver {
         while (username.trim().isEmpty()) {
             System.out.print("Username: ");
             username = s.nextLine();
-            // TODO: Should be a more graceful way to handle this
-            // Also we might not need this because user could just
+            // We might not need this because user could just
             // Ctrl + C
             if (username.equalsIgnoreCase("quit")) {
             	requestingExit = true;
