@@ -27,6 +27,8 @@ public class Driver {
     
     // AdminInteraction instance to handle admin-specific operations
     private static AdminInteraction adminUi = null;
+    
+    private static boolean requestingExit = false;
 
     // Private constructor to prevent instantiation
     private Driver() throws CMCException {
@@ -232,7 +234,8 @@ public class Driver {
     private static void regularUserMenu(Scanner s) {
         printHeader("User Menu");
 
-        int choice = ConsoleUtils.getMenuOption(s, Arrays.asList("Search Universities", "View Saved Schools", "View Specific School","Logout"));
+        int choice = ConsoleUtils.getMenuOption(s, Arrays.asList("Search Universities", "View Saved Schools",
+        		"View Specific School", "Update Profile", "Logout"));
 
         switch(choice) {
         case 1: // Search
@@ -261,7 +264,9 @@ public class Driver {
                 displaySchoolDetailsAndSimilar(s, viewedUniversity, ui);
             }
             break;
-        case 4: // Logout
+        case 4: // Update Profile
+        	ui.updateMyInfo(s);
+        case 5: // Logout
             ui.logout();
             break;
         default:
@@ -438,7 +443,13 @@ public class Driver {
         while (username.trim().isEmpty()) {
             System.out.print("Username: ");
             username = s.nextLine();
-            if (username.equalsIgnoreCase("quit")) return false; // Signal to exit
+            // TODO: Should be a more graceful way to handle this
+            // Also we might not need this because user could just
+            // Ctrl + C
+            if (username.equalsIgnoreCase("quit")) {
+            	requestingExit = true;
+            	return false;
+            }
         }
 
         System.out.print("Password: ");
@@ -464,15 +475,16 @@ public class Driver {
         Scanner s = new Scanner(System.in);
         boolean keepRunning = true;
 
-        while (keepRunning) {
+        while (!requestingExit) {
             User currentUser = ui.getLoggedInUser();
 
             if (currentUser == null) {
                 boolean loggedIn = topMenu(s);
                 if (!loggedIn && ui.getLoggedInUser() == null) {
                     // This implies user typed 'quit' or login failed repeatedly
-                    System.out.println("Exiting requested or login failed.");
-                    keepRunning = false; // Exit the loop
+                	if(requestingExit) break;
+                	
+                    continue;
                 }
             } else if (currentUser.isAdmin()) {
                 adminMenu(s);
