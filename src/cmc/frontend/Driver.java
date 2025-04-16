@@ -232,7 +232,7 @@ public class Driver {
     private static void regularUserMenu(Scanner s) {
         printHeader("User Menu");
 
-        int choice = ConsoleUtils.getMenuOption(s, Arrays.asList("Search Universities", "View Saved Schools", "View Specific School", "Logout"));
+        int choice = ConsoleUtils.getMenuOption(s, Arrays.asList("Search Universities", "View Saved Schools", "View Specific School","Logout"));
 
         switch(choice) {
         case 1: // Search
