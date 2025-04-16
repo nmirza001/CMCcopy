@@ -227,5 +227,40 @@ public class UserInteraction {
         return theSystemController.getSearchController().findSimilar(targetUniversity);
     }
     // <<< NEW METHOD END >>>
-
+    /**
+     * @author Alex Lopez
+     * @version 4/16/2025
+     */
+    public void updateMyInfo(Scanner s) {
+    	if(loggedInUser == null) {
+    		System.out.println("Must be logged in");
+    		return;
+    	}
+    	System.out.print("New First Name for("+ loggedInUser.getFirstName()+ ")");
+    	String first = s.nextLine().trim();
+    	if (first.isEmpty()) first = null;
+    	
+    	System.out.print("New Last Name for("+ loggedInUser.getLastName()+ ")");
+    	String last = s.nextLine().trim();
+    	if (last.isEmpty()) last = null;
+    	
+    	System.out.print("New Password(leave blank to leave current): ");
+    	String password = s.nextLine().trim();
+    	if (password.isEmpty()) password = null;
+    	
+    try{
+		boolean ok = theSystemController.updateUserInfo(loggedInUser.getUsername(),first,last,password);
+		if (ok) {
+			System.out.println("Profile updated successfully");
+			String pw = (password != null ? password : loggedInUser.getPassword());
+			loggedInUser = theSystemController.login(loggedInUser.getUsername(), pw);
+		}
+		else {
+			System.out.println("Update failed. Please try again");
+		}
+    }
+    catch (CMCException e) {
+    	System.err.println("Error: " + e.getMessage());
+    }
+}
 }
