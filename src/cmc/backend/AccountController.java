@@ -58,5 +58,12 @@ public class AccountController {
 		
 		return db.getAllUsers();
 	}
-	
+	/**
+	 * @author Alex Lopez
+	 * @Version 4/16/2025
+	 */
+	// Updates User info
+	public boolean updateUser(User u)throws CMCException {
+		return db.editUser(u);
+	}
 }
