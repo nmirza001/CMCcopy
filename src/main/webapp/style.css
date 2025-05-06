@@ -6,6 +6,12 @@ body {
 	text-align: center;
 }
 
+input {
+	font-size: 14pt;
+	border-radius: 8px;
+	margin: 8px;
+}
+
 .topbar {
 	background-color: #6060FF;
 	width: 100%;

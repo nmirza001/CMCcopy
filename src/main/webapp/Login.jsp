@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Login</title>
-		<link rel="stylesheet" href="style.css"></link>
+		<link rel="stylesheet" href="style.css?v=2"></link>
 	</head>
 	<body>
 		<%@include file="TopBar.jsp" %>
@@ -17,7 +17,7 @@
 			<label for="pwd">Password: </label>
 			<input id="pwd" name="pwd" placeholder="Password" type="password" />
 			<br />
-			<input type="submit" />
+			<input type="submit" value="Log In" />
 		</form>
 	</body>
 </html>
