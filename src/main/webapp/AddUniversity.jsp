@@ -25,11 +25,7 @@
     <input id="state" name="state" type="text" required /><br/>
 
     <label for="location">Location:</label>
-    <input id="location" name="location" type="text" /><br/>
-
-    <label for="control">Control:</label>
-    <input id="control" name="control" type="text" /><br/>
-    
+    <input id="location" name="location" type="text" /><br/>  
 
     <button type="submit">Add University</button>
   </form>
