@@ -2,11 +2,22 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Login</title>
-</head>
-<body>
-<h1>CMC</h1>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+		<link rel="stylesheet" href="style.css"></link>
+	</head>
+	<body>
+		<%@include file="TopBar.jsp" %>
+		<h1>CMC</h1>
+		<form method="post" action="LoginAction.jsp">
+			<label for="uname">Username: </label>
+			<input id="uname" name="uname" placeholder="Username" type="text" />
+			<br />
+			<label for="pwd">Password: </label>
+			<input id="pwd" name="pwd" placeholder="Password" type="password" />
+			<br />
+			<input type="submit" />
+		</form>
+	</body>
 </html>
