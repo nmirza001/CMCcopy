@@ -32,3 +32,11 @@ input {
 .right {
 	float: right;
 }
+
+.error {
+	background-color: #FF000070;
+	border-radius: 8px;
+	margin: 24px;
+	display: inline-block;
+	padding: 8px;
+}
