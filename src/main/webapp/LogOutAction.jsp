@@ -3,7 +3,7 @@
 
 <%
 
-session.removeAttribute("username");
+session.removeAttribute("user");
 session.removeAttribute("accttype");
 
 response.sendRedirect("/CMCWeb");
