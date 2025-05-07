@@ -94,6 +94,6 @@
         </tr>
       </table>
     </form>
-
+	<a href="AdminHome.jsp"><button style="font-size:20px" style="text-align:center">Go Back</button></a>
   </body>
 </html>
