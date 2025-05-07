@@ -25,5 +25,5 @@ else {
 	db.editUser(newUsr);
 }
 
-response.sendRedirect("./ManageUsers.jsp");
+response.sendRedirect("./manageUsers.jsp");
 %>
