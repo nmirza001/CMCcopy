@@ -3,7 +3,7 @@
 <%
 User u = (User)session.getAttribute("user");
 if(u == null || u.isAdmin()) {
-	response.sendRedirect("/CMCWeb");
+	response.sendRedirect("./");
 	return;
 }
 %>
