@@ -11,9 +11,9 @@
 	<body>
 		<%@include file="TopBar.jsp" %>
 		<div class="flexarea">
-			<a>Search Universities</a>
-			<a>Favorites</a>
-			<a>Edit My Profile</a>
+			<a href="./Search.jsp">Search Universities</a>
+			<a href="./Favorites.jsp">Favorites</a>
+			<a href="./EditProfile.jsp">Edit My Profile</a>
 		</div>
 	</body>
 </html>
