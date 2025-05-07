@@ -32,5 +32,8 @@ List<University> unis = uc.getAllSchools();
 			</tr>
 			<% } %>
 		</table>
+		<a href="AdminHome.jsp">
+       	 	<button style="font-size:20px; padding:8px 8px;">Go Back</button>
+   		 </a>
 	</body>
 </html>
