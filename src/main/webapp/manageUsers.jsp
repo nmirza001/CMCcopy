@@ -14,7 +14,7 @@
 		<br>
 		<br>
 		<br>
-		<table border="1" style="border-collapse: collapse; width: 75%;">
+		<table border="1" style="border-collapse: collapse; width: 100%;">
   			<tr>
   				<th>Num</th>
     			<th>Username</th>
@@ -47,6 +47,9 @@
   						<%count++; %>
   						<td><a href="EditUser.jsp?name=<%= up.getUsername() %>">
   							<button type="button">Edit</button>
+						</a></td>
+						<td><a href="DeleteUser.jsp?name=<%= up.getUsername()%>" onclick="return confirm('Are you sure you want to remove this user?');">
+  							<button type="button">Remove</button>
 						</a></td>
   				<%} %>		
   		</table>	
