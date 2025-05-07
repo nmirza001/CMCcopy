@@ -25,5 +25,8 @@
     	<a href="ManageUniversities.jsp">
         	<button style="font-size:20px; padding:100px 200px;">Manage Universities</button>
     	</a>
+    	<a href="AddUniversity.jsp">
+    	<button style="font-size:20px; padding: 100px 200px;" >Add University</button>
+    	</a>
 	</body>
 </html>
