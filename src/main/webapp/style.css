@@ -12,6 +12,11 @@ input, button {
 	margin: 8px;
 }
 
+table {
+	width: calc(100% - 10px);
+	text-align: center;
+}
+
 .topbar {
 	background-color: #6060FF;
 	width: 100%;

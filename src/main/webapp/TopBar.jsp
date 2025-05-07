@@ -15,7 +15,8 @@
 	</a>
 	<a class="right" href="./LogOutAction.jsp">
 		<%
-		User topBarUser = (User)session.getAttribute("user");
+		// Must be explicit in case other page imports cmc.backend.entities
+		cmc.backend.User topBarUser = (cmc.backend.User)session.getAttribute("user");
 		if(topBarUser == null) {
 		%>
 		Log Out
