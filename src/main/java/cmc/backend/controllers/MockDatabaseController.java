@@ -1,4 +1,3 @@
-
 package cmc.backend.controllers;
 
 import java.util.ArrayList;
@@ -222,6 +221,31 @@ public class MockDatabaseController extends DatabaseController {
             return false;
         }
         return list.add(schoolName);
+    }
+    
+    /**
+     * Removes a school from a user's saved schools list.
+     * 
+     * @param username The username of the user
+     * @param schoolName The name of the school to remove
+     * @return true if removal was successful, false otherwise
+     * @throws CMCException if there is an error
+     */
+    @Override
+    public boolean removeSchool(String username, String schoolName) throws CMCException {
+        if (username == null || schoolName == null) {
+            throw new IllegalArgumentException("Username and schoolName cannot be null");
+        }
+        if (!users.containsKey(username)) {
+            throw new CMCException("User '" + username + "' does not exist.");
+        }
+        
+        List<String> userSchools = savedSchools.get(username);
+        if (userSchools == null || !userSchools.contains(schoolName)) {
+            return false; // School not in saved list
+        }
+        
+        return userSchools.remove(schoolName);
     }
 
     @Override

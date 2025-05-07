@@ -181,6 +181,36 @@ public class DatabaseController implements AutoCloseable {
 		}
 	}
 	
+	/**
+	 * Removes a saved school from a particular user's list
+	 * @param username Username of the user
+	 * @param schoolName Name of the school to remove
+	 * @return true if successfully removed, false if school wasn't in the list or user doesn't exist
+	 * @throws CMCException if there's a database error
+	 */
+	public boolean removeSchool(String username, String schoolName) throws CMCException {
+		// Get the current mapping of saved schools
+		Map<String, List<String>> schools = getUserSavedSchoolMap();
+		List<String> userSchools = schools.get(username);
+		
+		// If user doesn't have the school saved, return false
+		if (userSchools == null || !userSchools.contains(schoolName)) {
+			return false;
+		}
+		
+		// Use the database library to remove the school
+		int result = this.database.user_removeSchool(username, schoolName);
+		
+		if (result != 1) {
+			String msg = String.format("(%d) Error removing school \"%s\" from user \"%s\" in the DB.",
+					result, schoolName, username);
+			throw new CMCException(msg + " Not present? DB error?");
+		}
+		else {
+			return true;
+		}
+	}
+	
 	// get the mapping from users to their saved universities in the DB
 	// e.g., peter -> {CSBSJU, HARVARD}
 	//       juser -> {YALE, AUGSBURG, STANFORD}

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="cmc.backend.*, cmc.backend.entities.University, java.util.List, java.util.ArrayList" %>
+    pageEncoding="UTF-8" import="cmc.backend.*, cmc.frontend.*, cmc.backend.entities.University, java.util.List, java.util.ArrayList" %>
 <jsp:include page="VerifyLogin.jsp" />
 
 <%
@@ -18,9 +18,16 @@ if (currentUser == null) {
 }
 
 // Remove the school from the user's saved list
-// Note: The actual SystemController doesn't have removeSchool, so this would need to be implemented
-// For now, we'll use a message indicating this feature is not yet implemented
-String message = "The remove functionality is currently being implemented. Please check back later.";
+UserInteraction ui = new UserInteraction();
+boolean success = ui.removeSavedSchool(universityName);
+
+// Set message based on success/failure
+String message = "";
+if (success) {
+    message = "School '" + universityName + "' has been successfully removed from your saved list.";
+} else {
+    message = "Error: Unable to remove '" + universityName + "' from your saved list. Please try again.";
+}
 session.setAttribute("message", message);
 
 // Redirect back to saved schools page

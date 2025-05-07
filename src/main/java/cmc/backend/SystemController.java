@@ -93,6 +93,28 @@ public class SystemController {
 		return this.myDBController.saveSchool(user, school);
 	}
 	
+	/**
+	 * This REGULAR USER ONLY method attempts to remove the provided school
+	 * from the list of saved schools for the provided username
+	 * 
+	 * @param user Username of the user
+	 * @param school Name of the school to remove
+	 * @return true if school was successfully removed, false otherwise
+	 * @throws CMCException if there is an error with database operation
+	 */
+	public boolean removeSchool(String user, String school) throws CMCException {
+		// Get the current saved schools for this user
+		List<String> savedSchools = this.getSavedSchools(user);
+		
+		// Check if the school is actually in the user's saved list
+		if (savedSchools == null || !savedSchools.contains(school)) {
+			return false;
+		}
+		
+		// Use the database controller to remove the saved school
+		return this.myDBController.removeSchool(user, school);
+	}
+	
 	// this REGULAR USER ONLY method attempts to retrieve the list of saved
 	// schools for the provided username
 	public List<String> getSavedSchools(String user) {

@@ -130,6 +130,26 @@ public class UserInteraction {
             }
 		}
 	}
+	
+	/**
+	 * Removes a school from the current user's saved schools list.
+	 * 
+	 * @param schoolName The name of the school to remove
+	 * @return true if removal was successful, false otherwise
+	 */
+	public boolean removeSavedSchool(String schoolName) {
+		if (this.loggedInUser == null) {
+			System.out.println("You must be logged in to remove a saved school.");
+			return false;
+		}
+		
+		try {
+			return this.theSystemController.removeSchool(this.loggedInUser.getUsername(), schoolName);
+		} catch (CMCException e) {
+			System.err.println("Error removing school: " + e.getMessage());
+			return false;
+		}
+	}
 
 	// get the list of saved school names for the currently-logged-in user
 	public List<String> getSavedSchools() {
