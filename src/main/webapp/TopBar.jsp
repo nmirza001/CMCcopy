@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="cmc.backend.*" %>
 <div class="topbar">
-	<a href="/CMCWeb">
+	<a href="./">
 		<%
 		String acctType = (String)session.getAttribute("accttype");
 		if("admin".equals(acctType)) {
@@ -13,7 +13,7 @@
 		CMC
 		<% } %>
 	</a>
-	<a class="right" href="/CMCWeb/LogOutAction.jsp">
+	<a class="right" href="./LogOutAction.jsp">
 		<%
 		User topBarUser = (User)session.getAttribute("user");
 		if(topBarUser == null) {
