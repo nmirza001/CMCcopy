@@ -22,7 +22,7 @@
 		 <a href="manageUsers.jsp">
        	 	<button style="font-size:20px; padding:100px 200px;">Manage Users</button>
    		 </a>
-    	<a href="manageUnis.jsp">
+    	<a href="ManageUniversities.jsp">
         	<button style="font-size:20px; padding:100px 200px;">Manage Universities</button>
     	</a>
 	</body>
