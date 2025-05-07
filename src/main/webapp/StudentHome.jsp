@@ -3,7 +3,11 @@
 <%@include file="VerifyStudent.jsp" %>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 	<head>
+=======
+<head>
+>>>>>>> 5db82d87e44baab0e34fd15af7b4d56dba465eaf
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
@@ -63,7 +67,11 @@
         <div class="feature-links">
             <a href="SearchUniversity.jsp" class="feature-link search-link">Search Universities</a>
             <a href="SavedSchools.jsp" class="feature-link saved-link">View Saved Schools</a>
+<<<<<<< HEAD
             <a href="EditProfile.jsp" class="feature-link profile-link">Edit Profile</a>
+=======
+            <a href="EditMyProfile.jsp" class="feature-link profile-link">Edit Profile</a>
+>>>>>>> 5db82d87e44baab0e34fd15af7b4d56dba465eaf
         </div>
     </div>
 </body>
