@@ -190,7 +190,7 @@ public class Driver {
         }
 
         // Provide options relevant to the saved list
-        int choice = ConsoleUtils.getMenuOption(s, Arrays.asList("View Details", "Remove School (Not Implemented)", "Go Back"));
+        int choice = ConsoleUtils.getMenuOption(s, Arrays.asList("View Details", "Remove School", "Go Back"));
 
         switch(choice) {
         case 1: // View Details
@@ -214,9 +214,23 @@ public class Driver {
              }
              break;
         case 2: // Remove School
-            System.out.println("Remove saved school functionality is not yet implemented.");
-            System.out.println("Press Enter to continue...");
-            if (s.hasNextLine()) s.nextLine();
+            if (schools == null || schools.isEmpty()) {
+                System.out.println("No saved schools to remove.");
+                break;
+            }
+            System.out.print("Enter the number of the saved school to remove: ");
+            int removeChoice = ConsoleUtils.getSingleMenuEntry(s, 1, schools.size());
+            if (removeChoice != -1) {
+                String schoolName = schools.get(removeChoice - 1);
+                boolean removed = currentUi.removeSavedSchool(schoolName);
+                if (removed) {
+                    System.out.println("School '" + schoolName + "' has been successfully removed from your saved list.");
+                } else {
+                    System.out.println("Error: Unable to remove '" + schoolName + "' from your saved list. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid selection.");
+            }
             break;
         case 3: // Go Back
             return;

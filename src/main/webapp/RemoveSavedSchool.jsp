@@ -18,16 +18,24 @@ if (currentUser == null) {
 }
 
 // Remove the school from the user's saved list
-UserInteraction ui = new UserInteraction();
-boolean success = ui.removeSavedSchool(universityName);
-
-// Set message based on success/failure
+SystemController systemController = new SystemController();
+boolean success = false;
 String message = "";
-if (success) {
-    message = "School '" + universityName + "' has been successfully removed from your saved list.";
-} else {
-    message = "Error: Unable to remove '" + universityName + "' from your saved list. Please try again.";
+
+try {
+    success = systemController.removeSchool(currentUser.getUsername(), universityName);
+    
+    // Set message based on success/failure
+    if (success) {
+        message = "School '" + universityName + "' has been successfully removed from your saved list.";
+    } else {
+        message = "Error: Unable to remove '" + universityName + "' from your saved list. Please try again.";
+    }
+} catch (Exception e) {
+    message = "Error: " + e.getMessage();
 }
+
+// Store the message in the session for display on the next page
 session.setAttribute("message", message);
 
 // Redirect back to saved schools page
