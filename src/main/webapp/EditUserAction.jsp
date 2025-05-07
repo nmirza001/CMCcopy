@@ -10,18 +10,15 @@ String pwd = request.getParameter("pwd");
 String fn = request.getParameter("fn");
 String ln = request.getParameter("ln");
 
-User newUsr = new User(uname, pwd, false, fn, ln);
+boolean oldValBlank = oldVal == null || oldVal.length() == 0;
+
+User newUsr = new User(oldValBlank ? uname : oldVal, pwd, false, fn, ln);
 
 AccountController db = new AccountController();
-if(oldVal == null || oldVal.length() == 0) {
+if(oldValBlank) {
 	db.addUser(newUsr);
 }
 else {
-	if(!oldVal.equals(uname)) {
-		response.sendRedirect("./");
-		return;
-	}
-	
 	db.editUser(newUsr);
 }
 

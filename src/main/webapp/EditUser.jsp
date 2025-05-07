@@ -8,7 +8,7 @@
 
 
 String oldVal = request.getParameter("name");
-if(oldVal.length() == 0) oldVal = null;
+if(oldVal != null && oldVal.length() == 0) oldVal = null;
 
 String verb = oldVal == null ? "Add" : "Edit";
 
