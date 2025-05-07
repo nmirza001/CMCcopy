@@ -63,7 +63,7 @@
         <div class="feature-links">
             <a href="SearchUniversity.jsp" class="feature-link search-link">Search Universities</a>
             <a href="SavedSchools.jsp" class="feature-link saved-link">View Saved Schools</a>
-            <a href="EditProfile.jsp" class="feature-link profile-link">Edit Profile</a>
+            <a href="EditMyProfile.jsp" class="feature-link profile-link">Edit Profile</a>
         </div>
     </div>
 </body>
