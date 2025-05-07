@@ -1,126 +1,116 @@
 # Choose My College (CMC)
 
-## CSCI 230: Software Development - Spring 2025
-College of Saint Benedict / Saint John's University
+A Java application to help students find and compare colleges that match their preferences
 
----
+## Overview
 
-## 📄 Project Overview
-Choose My College (CMC) is a Java console application developed as the final project for CSCI 230. It allows users to explore and manage university data. Regular users can search and save schools, while administrators can manage users and update university records. The application follows clean separation between frontend and backend logic and emphasizes test-driven development and extensibility.
+Choose My College (CMC) is a comprehensive Java application developed for CSCI 230: Software Development at the College of Saint Benedict / Saint John's University (Spring 2025). The application provides students with a powerful tool to search, compare, and manage university data to help them make informed college decisions.
 
----
+CMC offers two interfaces:
+- **Console-based interface** for quick, command-line usage
+- **Web-based interface** for a more visual experience
 
-## 👨‍💻 Project Team
-- Nasir Mirza
-- Rick Masaana
-- Alex
-- Roman Lefler
-- Timmy
+## Features
 
----
+### For Students
 
-## 🎯 Core Features
+- **Search universities** by state, location type, control type, and student population
+- **View detailed university profiles** including location, academics, admissions, and campus life metrics
+- **Save favorite schools** for later comparison
+- **Find similar schools** based on a sophisticated algorithm matching:
+  - State
+  - Location (urban/suburban/rural)
+  - Control type (public/private)
+  - Student body size (±25%)
+  - SAT scores (±75 points)
+  - Acceptance rate (±15%)
+  - Academic quality (±1 point)
 
-### 🔓 Login System
-- Secure login with username and password
-- Active/inactive status for account control
+### For Administrators
 
-### 🧑‍🎓 For Regular Users
-- **Search** universities by state (case-insensitive), student count, or both
-- **Empty search** returns all universities
-- **View full university profiles** with location, control, SATs, admissions, and emphasis
-- **Save universities** for later
-- **View saved schools** and their details
-- **Find similar schools** using a multi-criteria algorithm
+- **Manage users:** Add, deactivate, reactivate, or remove user accounts
+- **Manage universities:** Add, edit, or remove university profiles
+- **Extended university data:** Maintain links to university websites and images
 
-### 🛠️ For Admins
-- **Manage Users**: Add, deactivate/reactivate, delete, search by username
-- **Manage Universities**:
-  - Add new universities
-  - Edit full profile including emphasis, image URL, and webpage
-  - Remove schools from the system
+## Project Architecture
 
----
+CMC follows an MVC-inspired architecture with clean separation of concerns:
 
-## 🧠 Architecture
 ```
 CMC/
 ├── src/
-│   └── cmc/
-│       ├── backend/
-│       │   ├── controllers/         # Business logic
-│       │   └── entities/            # Models (University, User)
-│       ├── frontend/                # UI interfaces and menus
-│       └── CMCException.java        # Custom error handling
-├── test/
-│   ├── backend/                     # Unit tests
-│   ├── regression/                  # Regression bug checks
-│   └── userstory/                   # Tests for user-centered features
-└── lib/                             # External libraries (JUnit, DB Library)
+│   └── main/
+│       └── java/
+│           └── cmc/
+│               ├── backend/            # Model & Controller components
+│               │   ├── controllers/    # Database interface and mock controllers
+│               │   └── entities/       # Domain objects (University, User, etc.)
+│               ├── frontend/           # View components
+│               └── CMCException.java   # Custom exception handling
+├── test/                 # Comprehensive test suite
+│   ├── backend/          # Unit tests for backend components
+│   ├── regression/       # Regression tests for bug fixes
+│   └── userstory/        # Tests verifying user story implementation
+└── webapp/               # Web interface components (JSP, CSS)
 ```
 
----
+## Similarity Matching
 
-## 📊 Similarity Matching Logic
-The `findSimilar()` method returns universities that match at least **3 out of 7** criteria:
-- State
-- Location (urban/suburban/rural)
-- Control (public/private)
-- Student body size (±25%)
-- SAT score range (±75 points)
-- Acceptance rate (±15%)
-- Academic scale (±1)
+One of CMC's most powerful features is its ability to find similar universities. A school is considered similar if it matches at least 3 out of 7 key criteria:
 
----
+1. Same state
+2. Similar location (urban/suburban/rural)
+3. Same control type (public/private)
+4. Similar student body size (within 25%)
+5. Comparable SAT scores (within 75 points)
+6. Similar acceptance rate (within 15 percentage points)
+7. Comparable academic quality (within 1 point on a 5-point scale)
 
-## ⚙️ Setup Instructions
+This algorithm helps students discover options they might not have considered but that match their preferences.
 
-### 📥 Clone the Repository
-Clone into your Eclipse workspace or preferred IDE.
+## Getting Started
 
-### 🛠 Requirements
-- Java JDK 1.8
-- Eclipse or IntelliJ (or CLI)
-- JUnit 4
-- UniversityDBLibrary.jar (if connecting to real DB)
+### Prerequisites
 
----
+- Java JDK 8+
+- Apache Tomcat 9.0 (for web interface)
+- MySQL database (optional, MockDatabaseController available for testing)
 
-## 🧪 Running the Program
+### Running the Console Application
 
-### ✅ In Eclipse
-1. Import the project
-2. Right-click `Driver.java` in `src/cmc/frontend/`
-3. Select **Run As > Java Application**
-
-### 🧪 Running Tests in Eclipse
-1. Navigate to `test/`
-2. Right-click `AllTests.java` or any test file
-3. Select **Run As > JUnit Test**
-
-### 🖥️ Command Line
-#### Compile
 ```bash
-javac -d bin -cp "lib/*" src/cmc/**/*.java test/cmc/**/*.java
-```
-#### Run App
-```bash
+# Compile the project
+ant build
+
+# Run the console application
 java -cp "bin:lib/*" cmc.frontend.Driver
+
+# Run tests
+ant AllTests
 ```
-#### Run Tests
-```bash
-java -cp "bin:lib/*" org.junit.runner.JUnitCore cmc.AllTests
-```
+
+### Setting Up the Web Interface
+
+1. Deploy the WAR file to your Tomcat server
+2. Access the application at `http://localhost:8080/cmc/`
+
+## Development Team
+
+- Nasir Mirza 
+- Rick Masaana
+- Alex Lopez
+- Roman Lefler
+- Timothy Flynn
+
+## Testing Philosophy
+
+CMC follows a comprehensive testing approach:
+- Unit tests for all major components
+- Regression tests to prevent bug reintroduction
+- User story tests to validate feature implementation from a user perspective
+
+The MockDatabaseController allows for testing without a live database connection.
 
 ---
 
-## 🧪 Testing Philosophy
-- Test-driven structure using JUnit 4
-- Extensive unit, regression, and user scenario tests
-- Supports testing with or without a real database (via MockDatabaseController)
-
----
-
-## 🎓 Academic Use
-This application was created for educational use as part of a software development course. All code is student-written and demonstrates principles of modularity, MVC separation, test coverage, and user-centered design.
-
+*Created for CSCI 230: Software Development - Spring 2025*
