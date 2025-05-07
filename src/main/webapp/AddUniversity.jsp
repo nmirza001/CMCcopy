@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,25 +14,25 @@
   <form method="post" action="AddUniversityAction.jsp">
   <table>
   <tr>
-    <td><label for="name">Name:</label></td>
+    <td><label for="name">Name (ALL CAPS):</label></td>
     <td><input type="text" id="name" name="name" required /><td/>
     
     </tr>
     <tr>
 
-    <td><label for="state">State:</label></td>
+    <td><label for="state">State (ALL CAPS):</label></td>
     <td><input type= "text" id="state" name="state" /><td/>
     
     </tr>
     <tr>
 
-    <td><label for="location">Location:</label></td>
+    <td><label for="location">Location (ALL CAPS):</label></td>
     <td><input type="text" id="location" name="location" /><td/>  
     
  	</tr>
     <tr>
     
-    <td><label for="control">Control:</label></td>
+    <td><label for="control">Control (ALL CAPS):</label></td>
     <td><input type="text" id="control" name="control" /></td>
     
     </tr>
@@ -42,23 +43,23 @@
     
     </tr>
         <tr>
-          <td><label for="percentFemale">% Female:</label></td>
+          <td><label for="percentFemale">% Female (e.g.45.0):</label></td>
           <td><input type="text" id="percentFemale" name="percentFemale" /></td>
         </tr>
         <tr>
-          <td><label for="satVerbal">SAT Verbal:</label></td>
+          <td><label for="satVerbal">%SAT Verbal (e.g.450.0):</label></td>
           <td><input type="text" id="satVerbal" name="satVerbal" /></td>
         </tr>
         <tr>
-          <td><label for="satMath">SAT Math:</label></td>
+          <td><label for="satMath">%SAT Math (e.g.450.0):</label></td>
           <td><input type="text" id="satMath" name="satMath" /></td>
         </tr>
         <tr>
-          <td><label for="expenses">Expenses:</label></td>
+          <td><label for="expenses">Expenses (e.g 4500.00):</label></td>
           <td><input type="text" id="expenses" name="expenses" /></td>
         </tr>
         <tr>
-          <td><label for="percentFinancialAid">% Financial Aid:</label></td>
+          <td><label for="percentFinancialAid">% Financial Aid (e.g 45.0):</label></td>
           <td><input type="text" id="percentFinancialAid" name="percentFinancialAid" /></td>
         </tr>
         <tr>
@@ -66,11 +67,11 @@
           <td><input type="text" id="numApplicants" name="numApplicants" /></td>
         </tr>
         <tr>
-          <td><label for="percentAdmitted">% Admitted:</label></td>
+          <td><label for="percentAdmitted">% Admitted (e.g.45.0):</label></td>
           <td><input type="text" id="percentAdmitted" name="percentAdmitted" /></td>
         </tr>
         <tr>
-          <td><label for="percentEnrolled">% Enrolled:</label></td>
+          <td><label for="percentEnrolled">% Enrolled (e.g.45.0):</label></td>
           <td><input type="text" id="percentEnrolled" name="percentEnrolled" /></td>
         </tr>
         <tr>
