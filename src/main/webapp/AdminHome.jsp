@@ -8,8 +8,22 @@
 		<title>Home</title>
 		<link rel="stylesheet" href="style.css"></link>
 	</head>
-	<body>
+	<body style="text-align:center">
 		<%@include file="TopBar.jsp" %>
-		I complete this I just made this page so i can navigate to it
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		 <a href="manageUsers.jsp">
+       	 	<button style="font-size:20px; padding:100px 200px;">Manage Users</button>
+   		 </a>
+    	<a href="manageUnis.jsp">
+        	<button style="font-size:20px; padding:100px 200px;">Manage Universities</button>
+    	</a>
 	</body>
 </html>
