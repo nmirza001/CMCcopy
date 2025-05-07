@@ -4,7 +4,7 @@
 <%
 User u = (User)session.getAttribute("user");
 if(u != null) {
-	response.sendRedirect("/CMCWeb");
+	response.sendRedirect("./");
 	return;
 }
 %>

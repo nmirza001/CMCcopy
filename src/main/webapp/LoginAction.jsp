@@ -11,7 +11,7 @@ if(u != null) {
 	session.setAttribute("user", u);
 	session.setAttribute("accttype", u.isAdmin() ? "admin" : "student");
 	
-	response.sendRedirect("/CMCWeb");
+	response.sendRedirect("./");
 }
 else {
 	response.sendRedirect("./Login.jsp?error=1");
