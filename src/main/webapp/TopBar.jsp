@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="cmc.backend.*" %>
 <div class="topbar">
 	<a href="/CMCWeb">
 		<%
@@ -13,5 +13,14 @@
 		CMC
 		<% } %>
 	</a>
-	<a class="right" href="/CMCWeb/LogOutAction.jsp">Log Out</a>
+	<a class="right" href="/CMCWeb/LogOutAction.jsp">
+		<%
+		User topBarUser = (User)session.getAttribute("user");
+		if(topBarUser == null) {
+		%>
+		Log Out
+		<% } else { %>
+		<%= topBarUser.getFirstName() %> - Log Out
+		<% } %>
+	</a>
 </div>
