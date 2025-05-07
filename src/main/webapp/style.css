@@ -40,3 +40,21 @@ input, button {
 	display: inline-block;
 	padding: 8px;
 }
+
+.flexarea {
+	height: calc(100vh - 1.5em);
+	display: flex;
+}
+
+.flexarea > a {
+	width: 50%;
+	height: 50%;
+	outline: 1px solid gray;
+	display: block;
+	text-align: center;
+	line-height: 100%;
+}
+
+.flexarea > a::first-child {
+	width: 100%;
+}

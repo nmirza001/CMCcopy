@@ -10,6 +10,10 @@
 	</head>
 	<body>
 		<%@include file="TopBar.jsp" %>
-		<h1>Student Home</h1>
+		<div class="flexarea">
+			<a>Search Universities</a>
+			<a>Favorites</a>
+			<a>Edit My Profile</a>
+		</div>
 	</body>
 </html>

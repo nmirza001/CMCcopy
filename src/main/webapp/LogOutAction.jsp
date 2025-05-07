@@ -6,6 +6,6 @@
 session.removeAttribute("user");
 session.removeAttribute("accttype");
 
-response.sendRedirect("/CMCWeb");
+response.sendRedirect("./");
 
 %>
